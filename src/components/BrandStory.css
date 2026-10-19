@@ -1,0 +1,179 @@
+.brand-story-section {
+  padding: 6rem 0;
+  background-color: var(--color-bg-pearl);
+  position: relative;
+}
+
+.section-header-editorial {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 4rem;
+}
+
+.editorial-pill {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.editorial-heading {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  letter-spacing: 0.2em;
+  color: var(--color-ocean);
+}
+
+.editorial-lead {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.9;
+  font-weight: 300;
+}
+
+/* Grilla de pilares */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.pillar-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(201, 162, 74, 0.22);
+  border-radius: 4px;
+  padding: 2.2rem 1.8rem;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-card);
+}
+
+.pillar-icon-box {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--color-gold);
+  background: rgba(201, 162, 74, 0.1);
+  border-radius: 50%;
+  border: 1px solid rgba(201, 162, 74, 0.3);
+}
+
+.pillar-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--color-ocean);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+.pillar-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* Guía de cuidado */
+.gold-care-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(201, 162, 74, 0.35);
+  border-radius: 4px;
+  padding: 3.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.gold-care-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gold-gradient);
+}
+
+.gold-care-tag {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.gold-care-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  color: var(--color-ocean);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+.gold-care-text {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  max-width: 700px;
+  line-height: 1.8;
+  margin-bottom: 2.2rem;
+}
+
+.care-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.care-tip {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.care-tip-num {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.care-tip strong {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-ocean);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.05em;
+}
+
+.care-tip p {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .brand-story-section {
+    padding: 4rem 0;
+  }
+
+  .gold-care-card {
+    padding: 2rem 1.5rem;
+  }
+}

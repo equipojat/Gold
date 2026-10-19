@@ -1,0 +1,192 @@
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Sección de Catálogo */
+.catalog-section {
+  padding: 5rem 0 6rem;
+  position: relative;
+}
+
+.catalog-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 1.5rem;
+}
+
+.catalog-pill {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: block;
+  font-weight: 500;
+}
+
+/* Caja con altura fija para evitar saltos cuando el título cambia de renglones */
+.catalog-title-box {
+  min-height: 4.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.catalog-title {
+  font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+  letter-spacing: 0.16em;
+  color: var(--color-ocean);
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* Caja con altura fija para la descripción que absorbe diferencias de texto */
+.catalog-subtitle-box {
+  min-height: 4.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.6rem;
+}
+
+.catalog-subtitle {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin: 0;
+  max-width: 660px;
+}
+
+/* Animación sutil de desvanecimiento sin alterar dimensiones */
+@keyframes categoryCrossfade {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-crossfade-node {
+  animation: categoryCrossfade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  width: 100%;
+}
+
+/* Contenedor estabilizador de la grilla de productos */
+.products-grid-wrapper {
+  min-height: 560px;
+  width: 100%;
+}
+
+/* Grilla de Productos */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2rem;
+  margin-top: 1rem;
+  align-content: start;
+}
+
+/* Banner de asesoría / encargo personalizado */
+.custom-order-banner {
+  margin-top: 4.5rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(201, 162, 74, 0.35);
+  border-radius: 4px;
+  padding: 2.8rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.custom-order-text h4 {
+  font-size: 1.25rem;
+  color: var(--color-ocean);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.1em;
+}
+
+.custom-order-text p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.custom-order-btn {
+  white-space: nowrap;
+}
+
+/* Toast flotante de adición al carrito */
+.floating-toast {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-ocean);
+  color: #FFFFFF;
+  padding: 0.85rem 1.8rem;
+  border-radius: 30px;
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 10px 30px rgba(16, 43, 69, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  z-index: 1500;
+  animation: toastPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes toastPop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+  }
+
+  .custom-order-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .catalog-title-box {
+    min-height: 4.8rem;
+  }
+
+  .catalog-subtitle-box {
+    min-height: 5.8rem;
+  }
+
+  .products-grid-wrapper {
+    min-height: 480px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .catalog-section {
+    padding: 3.5rem 0 4.5rem;
+  }
+}

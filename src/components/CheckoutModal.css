@@ -1,0 +1,839 @@
+.checkout-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(11, 30, 48, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 2500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  overflow-y: auto;
+}
+
+/* Contenedor Unificado (1 Sola Columna / 1 Solo Slide) */
+.checkout-modal-container {
+  background: var(--color-bg-pearl);
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  border-radius: 4px;
+  border: 1px solid rgba(201, 162, 74, 0.45);
+  box-shadow: 0 25px 70px rgba(16, 43, 69, 0.4);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cabecera del Checkout */
+.checkout-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.6rem;
+  background: #FFFFFF;
+  border-bottom: 1px solid rgba(201, 162, 74, 0.25);
+  flex-shrink: 0;
+}
+
+.checkout-header-branding {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.checkout-logo-icon {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.checkout-header-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  color: var(--color-ocean);
+  font-weight: 600;
+  display: block;
+  line-height: 1.2;
+}
+
+.checkout-header-subtitle {
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  color: var(--color-gold);
+  display: block;
+}
+
+.checkout-security-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: #27ae60;
+  background: rgba(39, 174, 96, 0.08);
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  border: 1px solid rgba(39, 174, 96, 0.25);
+}
+
+.ssl-lock-icon {
+  font-size: 0.75rem;
+}
+
+.checkout-close-btn {
+  font-size: 1.1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(16, 43, 69, 0.05);
+  color: var(--color-ocean);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  border: none;
+  cursor: pointer;
+}
+
+.checkout-close-btn:hover {
+  background: var(--color-ocean);
+  color: #FFFFFF;
+}
+
+/* Flujo Continuo Unificado (Scroll vertical limpio) */
+.checkout-single-flow {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem 1.6rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar estética */
+.checkout-single-flow::-webkit-scrollbar {
+  width: 6px;
+}
+
+.checkout-single-flow::-webkit-scrollbar-track {
+  background: rgba(16, 43, 69, 0.03);
+}
+
+.checkout-single-flow::-webkit-scrollbar-thumb {
+  background: rgba(201, 162, 74, 0.35);
+  border-radius: 3px;
+}
+
+.checkout-unified-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* =======================================================
+   BLOQUE 0: Resumen Integrado de la Selección en 1 Card
+======================================================= */
+.checkout-integrated-summary {
+  background: #FFFFFF;
+  border: 1px solid rgba(201, 162, 74, 0.3);
+  border-radius: 4px;
+  padding: 1.2rem 1.3rem;
+  box-shadow: 0 4px 15px rgba(16, 43, 69, 0.04);
+}
+
+.integrated-summary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(201, 162, 74, 0.2);
+  margin-bottom: 0.85rem;
+}
+
+.summary-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-gold);
+}
+
+.summary-label {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  color: var(--color-ocean);
+  font-weight: 600;
+}
+
+.summary-grand-total {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.total-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.total-amount {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-ocean);
+  font-weight: 700;
+}
+
+.integrated-items-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-height: 170px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+  margin-bottom: 0.85rem;
+}
+
+.integrated-item-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.5rem 0.65rem;
+  background: var(--color-bg-pearl);
+  border: 1px solid rgba(201, 162, 74, 0.2);
+  border-radius: 4px;
+}
+
+.item-chip-thumb {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid rgba(201, 162, 74, 0.35);
+  flex-shrink: 0;
+}
+
+.item-chip-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.item-chip-name {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  color: var(--color-ocean);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.item-chip-meta {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+}
+
+.integrated-shipping-perk {
+  font-size: 0.74rem;
+  color: #27ae60;
+  background: rgba(39, 174, 96, 0.07);
+  padding: 0.5rem 0.75rem;
+  border-radius: 2px;
+  border: 1px solid rgba(39, 174, 96, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* =======================================================
+   BLOQUES 01 & 02: Entrega y Método de Pago
+======================================================= */
+.checkout-section-block {
+  background: #FFFFFF;
+  border: 1px solid rgba(201, 162, 74, 0.25);
+  border-radius: 4px;
+  padding: 1.4rem 1.4rem;
+  box-shadow: 0 4px 15px rgba(16, 43, 69, 0.03);
+}
+
+.section-block-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(201, 162, 74, 0.15);
+}
+
+.section-block-num {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  line-height: 1;
+  background: rgba(201, 162, 74, 0.12);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(201, 162, 74, 0.35);
+  flex-shrink: 0;
+}
+
+.section-block-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--color-ocean);
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.06em;
+}
+
+.section-block-desc {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Grilla de campos */
+.checkout-form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.checkout-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.checkout-field-group.full-width {
+  width: 100%;
+}
+
+.checkout-field-group.half-width {
+  width: calc(50% - 0.5rem);
+}
+
+.field-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ocean);
+  font-weight: 500;
+}
+
+.checkout-input,
+.checkout-select {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(201, 162, 74, 0.35);
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-ocean);
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.checkout-input:focus,
+.checkout-select:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(201, 162, 74, 0.2);
+}
+
+.checkout-input.uppercase {
+  text-transform: uppercase;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-addon-brand {
+  position: absolute;
+  right: 10px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-gold);
+  background: rgba(201, 162, 74, 0.12);
+  padding: 0.2rem 0.45rem;
+  border-radius: 2px;
+}
+
+/* =======================================================
+   MÉTODOS DE PAGO (Pestañas y Formularios)
+======================================================= */
+.payment-method-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.3rem;
+}
+
+.payment-tab-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.8rem 0.5rem;
+  background: var(--color-bg-pearl);
+  border: 1px solid rgba(201, 162, 74, 0.3);
+  border-radius: 4px;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--color-ocean);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.payment-tab-btn .tab-icon {
+  font-size: 1.15rem;
+}
+
+.payment-tab-btn:hover {
+  border-color: var(--color-gold);
+  background: rgba(201, 162, 74, 0.08);
+}
+
+.payment-tab-btn.active {
+  background: var(--color-ocean);
+  color: #FFFFFF;
+  border-color: var(--color-gold);
+  box-shadow: 0 4px 15px rgba(16, 43, 69, 0.18);
+}
+
+/* Vista previa de tarjeta bancaria dorada de lujo */
+.luxury-card-preview {
+  background: linear-gradient(135deg, #102B45 0%, #1e456b 60%, #102B45 100%);
+  border: 1px solid var(--color-gold);
+  border-radius: 8px;
+  padding: 1.3rem 1.4rem;
+  color: #FFFFFF;
+  margin-bottom: 1.4rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(16, 43, 69, 0.2);
+}
+
+.luxury-card-preview::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(201, 162, 74, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.card-chip-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-emv-chip {
+  width: 36px;
+  height: 26px;
+  background: linear-gradient(135deg, #E5CE93 0%, #C9A24A 100%);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.card-brand-badge {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--color-gold-light);
+  font-weight: 700;
+}
+
+.card-number-display {
+  font-family: monospace;
+  font-size: 1.15rem;
+  letter-spacing: 0.18em;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
+}
+
+.card-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+}
+
+.card-label {
+  display: block;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  color: var(--color-gold-light);
+  margin-bottom: 2px;
+}
+
+.card-value {
+  font-family: monospace;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+/* PSE Banner */
+.pse-info-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: rgba(16, 43, 69, 0.04);
+  border: 1px solid rgba(201, 162, 74, 0.3);
+  padding: 0.9rem;
+  border-radius: 4px;
+  margin-bottom: 1.3rem;
+}
+
+.pse-logo-badge {
+  background: #003366;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.pse-info-text {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Concierge Card */
+.concierge-bank-card {
+  background: var(--color-bg-pearl);
+  border: 1px solid rgba(201, 162, 74, 0.35);
+  border-radius: 4px;
+  padding: 1.3rem;
+  margin-bottom: 1.3rem;
+}
+
+.concierge-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(201, 162, 74, 0.2);
+}
+
+.concierge-bank-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.bank-detail-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.bank-detail-item .detail-label {
+  color: var(--color-text-muted);
+}
+
+.bank-detail-item .detail-value {
+  color: var(--color-ocean);
+  font-weight: 500;
+}
+
+.bank-detail-item .detail-value.highlight {
+  color: var(--color-gold);
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
+.concierge-instructions {
+  background: rgba(201, 162, 74, 0.08);
+  border: 1px solid rgba(201, 162, 74, 0.25);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+.concierge-instructions h4 {
+  font-size: 0.8rem;
+  color: var(--color-ocean);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.08em;
+}
+
+.concierge-instructions ol {
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* =======================================================
+   ACCIÓN FINAL DE PAGO Y GARANTÍAS UNIFICADAS
+======================================================= */
+.checkout-final-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.btn-pay-now-full {
+  width: 100%;
+  padding: 1.15rem;
+  font-size: 0.88rem;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  box-shadow: 0 10px 25px rgba(201, 162, 74, 0.25);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-lock {
+  font-size: 0.95rem;
+}
+
+.checkout-unified-guarantees {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-size: 0.72rem;
+  color: var(--color-ocean);
+  opacity: 0.85;
+  letter-spacing: 0.05em;
+  flex-wrap: wrap;
+}
+
+.guarantee-item-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* =======================================================
+   RECIBO OFICIAL DE CONFIRMACIÓN
+======================================================= */
+.checkout-receipt-view {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.receipt-success-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.receipt-success-badge h2 {
+  font-size: 1.35rem;
+  letter-spacing: 0.15em;
+  color: var(--color-ocean);
+}
+
+.order-id-badge {
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  color: var(--color-gold);
+}
+
+.order-id-badge strong {
+  background: rgba(201, 162, 74, 0.15);
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  color: var(--color-ocean);
+}
+
+.receipt-details-box {
+  background: #FFFFFF;
+  border: 1px solid rgba(201, 162, 74, 0.3);
+  border-radius: 4px;
+  padding: 1.4rem;
+  text-align: left;
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(16, 43, 69, 0.05);
+}
+
+.receipt-row span {
+  color: var(--color-text-muted);
+}
+
+.receipt-row strong {
+  color: var(--color-ocean);
+}
+
+.receipt-row.total-highlight {
+  border-bottom: none;
+  padding-top: 0.7rem;
+  font-size: 0.92rem;
+}
+
+.receipt-grand-price {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-ocean);
+}
+
+.receipt-certificate-notice {
+  background: rgba(201, 162, 74, 0.12);
+  border: 1px solid rgba(201, 162, 74, 0.35);
+  border-radius: 4px;
+  padding: 0.85rem;
+  font-size: 0.76rem;
+  color: var(--color-ocean);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.6rem;
+  text-align: left;
+}
+
+.receipt-actions-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.btn-text-close {
+  font-size: 0.76rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-text-close:hover {
+  color: var(--color-ocean);
+}
+
+/* =======================================================
+   OVERLAY DE PROCESAMIENTO BANCARIO
+======================================================= */
+.checkout-processing-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(251, 249, 245, 0.97);
+  backdrop-filter: blur(8px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.processing-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  max-width: 420px;
+}
+
+.processing-spinner {
+  width: 42px;
+  height: 42px;
+  border: 3px solid rgba(201, 162, 74, 0.25);
+  border-top-color: var(--color-gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.processing-dialog h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-ocean);
+  letter-spacing: 0.15em;
+}
+
+.processing-dialog p {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* =======================================================
+   RESPONSIVE DESIGN
+======================================================= */
+@media (max-width: 640px) {
+  .checkout-modal-container {
+    max-height: 95vh;
+  }
+
+  .checkout-modal-header {
+    padding: 0.9rem 1.1rem;
+  }
+
+  .checkout-security-indicator {
+    display: none;
+  }
+
+  .checkout-single-flow {
+    padding: 1.1rem 1.1rem 1.8rem;
+  }
+
+  .checkout-field-group.half-width {
+    width: 100%;
+  }
+
+  .payment-method-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .card-number-display {
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+  }
+}

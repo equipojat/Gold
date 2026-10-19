@@ -1,0 +1,46 @@
+:root {
+  /* Paleta cromática oficial de Marea Viva */
+  --color-ocean: #102B45;
+  --color-ocean-dark: #0A1B2C;
+  --color-ocean-light: #1A3E62;
+  --color-ocean-soft: rgba(16, 43, 69, 0.06);
+  
+  --color-gold: #C9A24A;
+  --color-gold-hover: #B8923C;
+  --color-gold-light: #E7CF97;
+  --color-gold-glow: rgba(201, 162, 74, 0.25);
+  --color-gold-subtle: rgba(201, 162, 74, 0.12);
+  --gold-gradient: linear-gradient(135deg, #B8923C 0%, #E7CF97 50%, #C9A24A 100%);
+  
+  /* Fondos */
+  --color-bg-pearl: #FBF9F5;
+  --color-bg-alt: #F4EFE7;
+  --color-surface: #FFFFFF;
+  
+  /* Textos */
+  --color-text-primary: #102B45;
+  --color-text-muted: #607383;
+  --color-text-light: #8E9FA9;
+  
+  /* Bordes & Separadores */
+  --border-gold-delicate: 1px solid rgba(201, 162, 74, 0.35);
+  --border-subtle: 1px solid rgba(16, 43, 69, 0.08);
+  
+  /* Tipografía */
+  --font-heading: 'Cinzel', Georgia, serif;
+  --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Sombras de lujo */
+  --shadow-subtle: 0 4px 20px rgba(16, 43, 69, 0.04);
+  --shadow-card: 0 10px 30px rgba(16, 43, 69, 0.07);
+  --shadow-hover: 0 16px 40px rgba(16, 43, 69, 0.12);
+  --shadow-modal: 0 25px 60px rgba(16, 43, 69, 0.22);
+  
+  /* Transiciones */
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease-out;
+  
+  /* Espaciado */
+  --max-width-site: 1280px;
+  --header-height: 80px;
+}

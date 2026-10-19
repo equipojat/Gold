@@ -1,0 +1,273 @@
+.catalog-controls-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-bottom: 3rem;
+}
+
+/* Fila 1: Pills de Categoría */
+.category-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background: rgba(16, 43, 69, 0.03);
+  padding: 0.4rem;
+  border-radius: 40px;
+  border: 1px solid rgba(201, 162, 74, 0.25);
+  margin: 0 auto;
+}
+
+.category-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.6rem;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ocean);
+  background: transparent;
+  transition: var(--transition-smooth);
+}
+
+.category-pill-btn:hover {
+  color: var(--color-gold);
+  background: rgba(201, 162, 74, 0.08);
+}
+
+.category-pill-btn.active {
+  background: var(--color-ocean);
+  color: #FFFFFF;
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 4px 15px rgba(16, 43, 69, 0.15);
+}
+
+.pill-count {
+  font-size: 0.72rem;
+  opacity: 0.7;
+}
+
+.category-pill-btn.active .pill-count {
+  color: var(--color-gold-light);
+  opacity: 1;
+}
+
+/* Fila 2: Filtros de Rango de Inversión / Precio */
+.price-pill-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  padding: 0.2rem 0;
+}
+
+.price-filter-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ocean);
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.price-pill-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.price-pill-btn {
+  font-family: var(--font-body);
+  font-size: 0.73rem;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.95rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(201, 162, 74, 0.3);
+  color: var(--color-ocean);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.price-pill-btn:hover {
+  border-color: var(--color-gold);
+  background: rgba(201, 162, 74, 0.08);
+  transform: translateY(-1px);
+}
+
+.price-pill-btn.active {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-ocean-dark);
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(201, 162, 74, 0.25);
+}
+
+/* Fila 3: Toolbar (Búsqueda y Ordenación) */
+.catalog-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 1.4rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(201, 162, 74, 0.25);
+  border-radius: 4px;
+  box-shadow: 0 4px 18px rgba(16, 43, 69, 0.03);
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1;
+  max-width: 420px;
+  background: var(--color-bg-pearl);
+  border: 1px solid rgba(201, 162, 74, 0.3);
+  border-radius: 2px;
+  padding: 0.55rem 0.9rem;
+  transition: var(--transition-fast);
+}
+
+.search-input-wrapper:focus-within {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(201, 162, 74, 0.15);
+}
+
+.search-icon {
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.catalog-search-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-ocean);
+  outline: none;
+}
+
+.catalog-search-input::placeholder {
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+}
+
+.clear-search-btn {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  padding: 2px;
+}
+
+.clear-search-btn:hover {
+  color: var(--color-ocean);
+}
+
+.toolbar-right-group {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.results-counter {
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.results-counter strong {
+  color: var(--color-ocean);
+  font-weight: 600;
+}
+
+.sort-dropdown-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.sort-label {
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ocean);
+  font-weight: 500;
+}
+
+.sort-select {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-ocean);
+  background: var(--color-bg-pearl);
+  border: 1px solid rgba(201, 162, 74, 0.35);
+  border-radius: 2px;
+  padding: 0.5rem 1.8rem 0.5rem 0.8rem;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C9A24A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  transition: var(--transition-fast);
+}
+
+.sort-select:hover,
+.sort-select:focus {
+  border-color: var(--color-gold);
+}
+
+@media (max-width: 900px) {
+  .catalog-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .search-input-wrapper {
+    max-width: 100%;
+  }
+
+  .toolbar-right-group {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 600px) {
+  .category-pill-group {
+    background: transparent;
+    border: none;
+    gap: 0.5rem;
+  }
+
+  .category-pill-btn {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.72rem;
+    background: #FFFFFF;
+    border: 1px solid rgba(201, 162, 74, 0.3);
+  }
+
+  .toolbar-right-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .sort-dropdown-wrapper {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .sort-select {
+    flex: 1;
+  }
+}
